@@ -1,242 +1,288 @@
-CONFIG_TARGET_ipq40xx=y
-CONFIG_TARGET_ipq40xx_generic=y
-CONFIG_TARGET_ipq40xx_generic_DEVICE_mobipromo_cm520-79f=y
-CONFIG_TARGET_ROOTFS_TARGZ=y
-CONFIG_TESTING_KERNEL=y
-CONFIG_LINUX_5_4=y
+cm520_lean_openwrt.config
 
-CONFIG_ALL_NONSHARED=y
-CONFIG_ALL_KMODS=y
-CONFIG_IB=y
-CONFIG_IB_STANDALONE=y
-CONFIG_IMAGEOPT=y
-CONFIG_MAKE_TOOLCHAIN=y
-CONFIG_SDK=y
+#=================================================
+# https://github.com/P3TERX/Actions-OpenWrt
+# Description: Build OpenWrt using GitHub Actions
+# Lisence: MIT
+# Author: P3TERX
+# Blog: https://p3terx.com
+#=================================================
 
-CONFIG_PACKAGE_htop=y
-CONFIG_PACKAGE_autocore-arm=y
-CONFIG_PACKAGE_automount=y
-CONFIG_PACKAGE_ipv6helper=y
+name: Build CM520 OpenWrt
 
-CONFIG_PACKAGE_kmod-can=n
-CONFIG_PACKAGE_kmod-multimedia-input=n
-CONFIG_PACKAGE_kmod-ath11k=n
-CONFIG_PACKAGE_kmod-sdhci=y
-CONFIG_PACKAGE_kmod-i2c-core=y
-CONFIG_PACKAGE_kmod-usb-audio=y
-CONFIG_PACKAGE_kmod-usb-ehci=y
-CONFIG_PACKAGE_kmod-usb-ohci=y
-CONFIG_PACKAGE_kmod-usb-ohci-pci=y
-CONFIG_PACKAGE_kmod-usb-printer=y
-CONFIG_PACKAGE_kmod-usb-uhci=y
-CONFIG_PACKAGE_kmod-usb2=y
-CONFIG_PACKAGE_kmod-usb2-pci=y
-CONFIG_PACKAGE_kmod-usb3=y
+on:
+  repository_dispatch:
+    types: [lean, cm520]
+  workflow_dispatch:
+  schedule:
+    - cron: 0 18 * * *
+#  watch:
+#    types: started
 
-CONFIG_PACKAGE_luci-app-adbyby-plus=y
-CONFIG_PACKAGE_luci-app-adguardhome=y
-CONFIG_PACKAGE_luci-app-adguardhome_INCLUDE_binary=n
-CONFIG_PACKAGE_luci-app-amule=y
-CONFIG_PACKAGE_luci-app-airplay2=y
-CONFIG_PACKAGE_luci-app-aria2=y
-CONFIG_PACKAGE_luci-app-baidupcs-web=m
-CONFIG_PACKAGE_luci-app-brook-server=y
-CONFIG_PACKAGE_luci-app-cifs-mount=y
-CONFIG_PACKAGE_luci-app-commands=y
-CONFIG_PACKAGE_luci-app-diskman=y
-CONFIG_PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs=y
-CONFIG_PACKAGE_luci-app-diskman_INCLUDE_lsblk=y
-CONFIG_PACKAGE_luci-app-diskman_INCLUDE_mdadm=y
-CONFIG_PACKAGE_luci-app-diskman_INCLUDE_kmod_md_raid456=y
-CONFIG_PACKAGE_luci-app-diskman_INCLUDE_kmod_md_linear=y
-CONFIG_PACKAGE_luci-app-dnspod=y
-CONFIG_PACKAGE_luci-app-dockerman=y
-CONFIG_PACKAGE_luci-app-familycloud=y
-CONFIG_PACKAGE_luci-app-fileassistant=y
-CONFIG_PACKAGE_luci-app-filebrowser=y
-CONFIG_PACKAGE_luci-app-flowoffload=y
-CONFIG_PACKAGE_luci-app-frpc=y
-CONFIG_PACKAGE_luci-app-frps=y
-CONFIG_PACKAGE_luci-app-gowebdav=y
-CONFIG_PACKAGE_luci-app-guest-wifi=y
-CONFIG_PACKAGE_luci-app-haproxy-tcp=y
-CONFIG_PACKAGE_luci-app-hd-idle=y
-CONFIG_PACKAGE_luci-app-ipsec-vpnd=n
-CONFIG_PACKAGE_luci-app-ipsec-server=y
-CONFIG_PACKAGE_luci-app-jd-dailybonus=y
-CONFIG_PACKAGE_luci-app-kcptun=y
-CONFIG_PACKAGE_luci-app-kodexplorer=y
-CONFIG_PACKAGE_luci-app-mentohust=y
-CONFIG_PACKAGE_luci-app-minidlna=y
-CONFIG_PACKAGE_luci-app-mjpg-streamer=y
-CONFIG_PACKAGE_luci-app-mwan3=y
-CONFIG_PACKAGE_luci-app-mwan3helper=y
-CONFIG_PACKAGE_luci-app-n2n_v2=y
-CONFIG_PACKAGE_luci-app-nfs=y
-CONFIG_PACKAGE_luci-app-nft-qos=y
-CONFIG_PACKAGE_luci-app-nps=y
-CONFIG_PACKAGE_luci-app-onliner=y
-CONFIG_PACKAGE_luci-app-ntpc=y
-CONFIG_PACKAGE_luci-app-openclash=y
-CONFIG_PACKAGE_luci-app-openvpn=y
-CONFIG_PACKAGE_luci-app-openvpn-server=y
-CONFIG_PACKAGE_luci-app-passwall=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Server=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Server=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_NaiveProxy=n
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Kcptun=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Haproxy=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Dns2socks=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple-obfs=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray-plugin=y
-CONFIG_PACKAGE_luci-app-pptp-server=y
-CONFIG_PACKAGE_luci-app-ps3netsrv=y
-CONFIG_PACKAGE_luci-app-rclone=m
-CONFIG_PACKAGE_luci-app-samba=y
-CONFIG_PACKAGE_luci-app-serverchan=y
-CONFIG_PACKAGE_luci-app-sfe=n
-CONFIG_PACKAGE_luci-app-shairplay=y
-CONFIG_PACKAGE_luci-app-smartdns=y
-CONFIG_PACKAGE_luci-app-socat=y
-CONFIG_PACKAGE_luci-app-softethervpn=y
-CONFIG_PACKAGE_luci-app-sqm=y
-CONFIG_PACKAGE_luci-app-ssr-plus=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_NaiveProxy=n
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Redsocks2=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
-CONFIG_PACKAGE_luci-app-ssr-mudb-server=y
-CONFIG_PACKAGE_luci-app-syncdial=y
-CONFIG_PACKAGE_luci-app-syncthing=y
-CONFIG_PACKAGE_luci-app-tinyproxy=y
-CONFIG_PACKAGE_luci-app-transmission=y
-CONFIG_PACKAGE_luci-app-trojan-server=y
-CONFIG_PACKAGE_luci-app-ttyd=y
+env:
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
+  CONFIG_FILE: config/ipq40xx/cm520_lean_openwrt.config
+  DIY_SH: scripts/lean-openwrt.sh
+  IPV6MOD_IN_FIRMWARE: true
+  KMODS_IN_FIRMWARE: false
+  WEBROOT: /data/dnmp/www/openwrt.cc
+  UPLOAD_RCLONE: true
+  UPLOAD_WETRANSFER: true
+  TZ: Asia/Shanghai
 
-CONFIG_PACKAGE_luci-app-udpxy=y
-CONFIG_PACKAGE_luci-app-unblockmusic=y
-CONFIG_UnblockNeteaseMusic_Go=y
-CONFIG_UnblockNeteaseMusic_NodeJS=y
-CONFIG_PACKAGE_luci-app-usb-printer=y
-CONFIG_PACKAGE_luci-app-uugamebooster=y
-CONFIG_PACKAGE_luci-app-v2ray-server=y
-CONFIG_PACKAGE_luci-app-vssr=m
-CONFIG_PACKAGE_luci-app-watchcat=y
-CONFIG_PACKAGE_luci-app-webadmin=y
-CONFIG_PACKAGE_luci-app-wifischedule=y
-CONFIG_PACKAGE_luci-app-wireguard=y
-CONFIG_PACKAGE_luci-app-wrtbwmon=y
-CONFIG_PACKAGE_luci-app-xlnetacc=y
-CONFIG_PACKAGE_luci-app-zerotier=y
-CONFIG_PACKAGE_luci-udptools=y
-CONFIG_PACKAGE_luci-proto-minieap=y
-CONFIG_PACKAGE_luci-proto-bonding=y
-CONFIG_PACKAGE_luci-proto-ipv6=y
-CONFIG_PACKAGE_luci-proto-modemmanager=y
-CONFIG_PACKAGE_luci-proto-openconnect=y
-CONFIG_PACKAGE_luci-proto-relay=y
-CONFIG_PACKAGE_luci-proto-wireguard=y
-CONFIG_PACKAGE_luci-theme-argon=y
-CONFIG_PACKAGE_luci-app-argon-config=y
-CONFIG_PACKAGE_luci-theme-material=y
+jobs:
+  Build:
+    runs-on: ubuntu-18.04
 
-CONFIG_LUCI_LANG_ca=y
-CONFIG_LUCI_LANG_cs=y
-CONFIG_LUCI_LANG_de=y
-CONFIG_LUCI_LANG_el=y
-CONFIG_LUCI_LANG_es=y
-CONFIG_LUCI_LANG_fr=y
-CONFIG_LUCI_LANG_he=y
-CONFIG_LUCI_LANG_hu=y
-CONFIG_LUCI_LANG_it=y
-CONFIG_LUCI_LANG_ja=y
-CONFIG_LUCI_LANG_ko=y
-CONFIG_LUCI_LANG_ms=y
-CONFIG_LUCI_LANG_no=y
-CONFIG_LUCI_LANG_pl=y
-CONFIG_LUCI_LANG_pt=y
-CONFIG_LUCI_LANG_pt-br=y
-CONFIG_LUCI_LANG_ro=y
-CONFIG_LUCI_LANG_ru=y
-CONFIG_LUCI_LANG_sk=y
-CONFIG_LUCI_LANG_sv=y
-CONFIG_LUCI_LANG_tr=y
-CONFIG_LUCI_LANG_uk=y
-CONFIG_LUCI_LANG_vi=y
-CONFIG_LUCI_LANG_zh-tw=y
+    outputs:
+      OPENWRTROOT: ${{ steps.update.outputs.OPENWRTROOT }}
+      PLATFORM: ${{ steps.compile.outputs.PLATFORM }}
+      TARGET: ${{ steps.compile.outputs.TARGET }}
+      SUBTARGET: ${{ steps.compile.outputs.SUBTARGET }}
+      FIRMWARE: ${{ steps.compile.outputs.FIRMWARE }}
+      GENERATE_STATUS: ${{ steps.generate.outputs.GENERATE_STATUS }}
 
-CONFIG_PACKAGE_ariang=y
-CONFIG_PACKAGE_coremark=y
-CONFIG_PACKAGE_ddns-scripts_cloudflare.com-v4=y
-CONFIG_PACKAGE_ddns-scripts_freedns_42_pl=y
-CONFIG_PACKAGE_ddns-scripts_godaddy.com-v1=y
-CONFIG_PACKAGE_ddns-scripts_no-ip_com=y
-CONFIG_PACKAGE_ddns-scripts_nsupdate=y
-CONFIG_PACKAGE_ddns-scripts_route53-v1=y
-CONFIG_PACKAGE_iperf=y
-CONFIG_PACKAGE_minieap=y
-CONFIG_PACKAGE_rsync=y
-CONFIG_PACKAGE_rsyncd=y
-CONFIG_PACKAGE_bind-dig=y
-CONFIG_PACKAGE_bind-host=y
-CONFIG_PACKAGE_ip6tables=y
-CONFIG_PACKAGE_ip6tables-extra=y
-CONFIG_PACKAGE_ip6tables-mod-nat=y
-CONFIG_PACKAGE_mentohust=y
-CONFIG_PACKAGE_openssh-sftp-client=y
-CONFIG_PACKAGE_openssh-sftp-server=y
-CONFIG_PACKAGE_xl2tpd=y
-CONFIG_PACKAGE_ppp-mod-pptp=y
-CONFIG_V2RAY_COMPRESS_UPX=y
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
 
-CONFIG_PACKAGE_apk=y
-CONFIG_PACKAGE_alpine-keys=y
-CONFIG_PACKAGE_alpine-repositories=y
-CONFIG_PACKAGE_bsdtar=y
-CONFIG_PACKAGE_bzip2=y
-CONFIG_PACKAGE_gzip=y
-CONFIG_PACKAGE_unzip=y
-CONFIG_PACKAGE_zip=y
-CONFIG_PACKAGE_fdisk=y
-CONFIG_PACKAGE_fstrim=y
-CONFIG_PACKAGE_lsblk=y
-CONFIG_PACKAGE_lscpu=y
-CONFIG_PACKAGE_nano=y
-CONFIG_PACKAGE_node-npm=y
-CONFIG_PACKAGE_shadow-chsh=y
-CONFIG_PACKAGE_vim=y
-CONFIG_PACKAGE_f2fs-tools=y
-CONFIG_PACKAGE_f2fsck=y
-CONFIG_PACKAGE_resize2fs=y
-CONFIG_PACKAGE_zsh=y
-CONFIG_PACKAGE_screen=y
-CONFIG_PACKAGE_snmpd=y
-CONFIG_PACKAGE_tmux=y
-CONFIG_PACKAGE_tree=y
-CONFIG_PACKAGE_usbutils=y
-CONFIG_PACKAGE_whereis=y
-CONFIG_PACKAGE_tmate=y
-CONFIG_PACKAGE_udp2raw-tunnel=y
-CONFIG_PACKAGE_udpspeeder=y
+      - name: Initialization Environment
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+          sudo -E apt-get -qq update
+          sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-1804) tree
+          sudo -E apt-get -qq autoremove --purge
+          sudo -E apt-get -qq clean
+          sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+      - name: Clone Source Code
+        run: |
+          df -hT $PWD
+          git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+      - name: Update Feeds
+        id: update
+        run: |
+          cd openwrt
+          echo "OPENWRTROOT=$PWD" >> $GITHUB_ENV
+          echo "::set-output name=OPENWRTROOT::$(echo $PWD)"
+          mkdir customfeeds
+          git clone --depth=1 https://github.com/coolsnowwolf/packages customfeeds/packages
+          git clone --depth=1 https://github.com/coolsnowwolf/luci customfeeds/luci
+          chmod +x ../scripts/*.sh
+          ../scripts/hook-feeds.sh
+      - name: Install Feeds
+        run: |
+          cd $OPENWRTROOT
+          ./scripts/feeds install -a
+      - name: Load Custom Configuration
+        run: |
+          [ -e files ] && mv files $OPENWRTROOT/files
+          [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $OPENWRTROOT/.config
+          cd $OPENWRTROOT
+          ../$DIY_SH
+          ../scripts/preset-clash-core.sh armv7
+          ../scripts/preset-terminal-tools.sh
+      - name: Download Package
+        id: package
+        run: |
+          cd $OPENWRTROOT
+          if "$KMODS_IN_FIRMWARE" = 'true'
+          then
+              echo "CONFIG_ALL_NONSHARED=y" >> .config
+          fi
+          make defconfig
+          make download -j8
+          find dl -size -1024c -exec ls -l {} \;
+          find dl -size -1024c -exec rm -f {} \;
+      - name: Compile Packages
+        id: compile
+        run: |
+          cd $OPENWRTROOT
+          echo -e "$(nproc) thread compile"
+          make tools/compile -j$(nproc) || make tools/compile -j1 V=s
+          make toolchain/compile -j$(nproc) || make toolchain/compile -j1 V=s
+          make target/compile -j$(nproc) || make target/compile -j1 V=s IGNORE_ERRORS=1
+          make diffconfig
+          make package/compile -j$(nproc) IGNORE_ERRORS=1 || make package/compile -j1 V=s IGNORE_ERRORS=1
+          make package/index
+          cd $OPENWRTROOT/bin/packages/*
+          PLATFORM=$(basename `pwd`)
+          echo "PLATFORM=$PLATFORM" >> $GITHUB_ENV
+          echo "::set-output name=PLATFORM::$(echo $PLATFORM)"
+          cd $OPENWRTROOT/bin/targets/*
+          TARGET=$(basename `pwd`)
+          echo "TARGET=$TARGET" >> $GITHUB_ENV
+          echo "::set-output name=TARGET::$(echo $TARGET)"
+          cd *
+          SUBTARGET=$(basename `pwd`)
+          echo "SUBTARGET=$SUBTARGET" >> $GITHUB_ENV
+          echo "::set-output name=SUBTARGET::$(echo $SUBTARGET)"
+          echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+          echo "::set-output name=FIRMWARE::$(echo $PWD)"
+          echo "::set-output name=COMPILE_STATUS::success"
+      - name: Generate Firmware
+        if: steps.compile.outputs.COMPILE_STATUS == 'success'
+        id: generate
+        run: |
+          cd data/opkg
+          sed -i "s/subtarget/$SUBTARGET/g" distfeeds*.conf
+          sed -i "s/target\//$TARGET\//g" distfeeds*.conf
+          sed -i "s/platform/$PLATFORM/g" distfeeds*.conf
+          cd $OPENWRTROOT
+          mkdir -p files/etc/uci-defaults/
+          cp ../scripts/init-settings.sh files/etc/uci-defaults/99-init-settings
+          mkdir -p files/etc/opkg
+          cp ../data/opkg/distfeeds-packages-server.conf files/etc/opkg/distfeeds.conf.server
+          if "$KMODS_IN_FIRMWARE" = 'true'
+          then
+              mkdir -p files/www/snapshots
+              cp -r bin/targets files/www/snapshots
+              cp ../data/opkg/distfeeds-18.06-local.conf files/etc/opkg/distfeeds.conf
+          else
+              cp ../data/opkg/distfeeds-18.06-remote.conf files/etc/opkg/distfeeds.conf
+          fi
+          cp files/etc/opkg/distfeeds.conf.server files/etc/opkg/distfeeds.conf.mirror
+          sed -i "s/http:\/\/192.168.123.100:2345\/snapshots/https:\/\/openwrt.cc\/snapshots\/$(date +"%Y-%m-%d")\/lean/g" files/etc/opkg/distfeeds.conf.mirror
+          if "$IPV6MOD_IN_FIRMWARE" = 'true'
+          then
+              mkdir -p files/www/ipv6-modules
+              cp bin/packages/$PLATFORM/luci/luci-proto-ipv6* files/www/ipv6-modules
+              cp bin/packages/$PLATFORM/base/{ipv6helper*,odhcpd-ipv6only*,odhcp6c*,6in4*} "files/www/ipv6-modules"
+              cp bin/targets/$TARGET/$SUBTARGET/packages/{ip6tables*,kmod-nf-nat6*,kmod-ipt-nat6*,kmod-sit*,kmod-ip6tables-extra*} "files/www/ipv6-modules"
+              mkdir -p files/bin
+              cp ../scripts/ipv6-helper.sh files/bin/ipv6-helper
+          fi
+          make package/install -j$(nproc) || make package/install -j1 V=s
+          make target/install -j$(nproc) || make target/install -j1 V=s
+          make checksum
+          echo "::set-output name=GENERATE_STATUS::success"
+      - name: Upload Bin Folder
+        uses: actions/upload-artifact@main
+        if: steps.generate.outputs.GENERATE_STATUS == 'success'
+        with:
+          name: bin-archive
+          path: openwrt/bin
 
-CONFIG_PACKAGE_luci-app-dockerman=n
-CONFIG_PACKAGE_docker-ce=n
-CONFIG_PACKAGE_luci-app-qbittorrent=n
-CONFIG_PACKAGE_qBittorrent=n
+  Upload:
+    needs: [Build]
+    runs-on: ubuntu-18.04
 
-CONFIG_PACKAGE_libimobiledevice-utils=y
-CONFIG_PACKAGE_libplist-utils=y
-CONFIG_PACKAGE_libusbmuxd-utils=y
-CONFIG_PACKAGE_usbmuxd=y
-CONFIG_PACKAGE_libudev-fbsd=y
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Restore Variables
+        run: |
+          echo "OPENWRTROOT=$(echo '${{needs.Build.outputs.OPENWRTROOT}}')" >> $GITHUB_ENV
+          echo "PLATFORM=$(echo '${{needs.Build.outputs.PLATFORM}}')" >> $GITHUB_ENV
+          echo "TARGET=$(echo '${{needs.Build.outputs.TARGET}}')" >> $GITHUB_ENV
+          echo "SUBTARGET=$(echo '${{needs.Build.outputs.SUBTARGET}}')" >> $GITHUB_ENV
+          echo "FIRMWARE=$(echo '${{needs.Build.outputs.FIRMWARE}}')" >> $GITHUB_ENV
+          echo "GENERATE_STATUS=$(echo '${{needs.Build.outputs.GENERATE_STATUS}}')" >> $GITHUB_ENV
+      - name: Download Bin Folder
+        uses: actions/download-artifact@v2
+        if: env.GENERATE_STATUS == 'success'
+        with:
+          name: bin-archive
+          path: openwrt/bin
+
+      - name: Deploy Packages-Server
+        if: env.GENERATE_STATUS == 'success'
+        run: |
+          sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+          mkdir -p server/web/snapshots/targets/$TARGET/$SUBTARGET
+          cp -r $OPENWRTROOT/bin/packages server/web/snapshots
+          cp -r $OPENWRTROOT/bin/targets/$TARGET/$SUBTARGET/packages server/web/snapshots/targets/$TARGET/$SUBTARGET
+          mv server packages-server
+          zip -qrm packages-server.zip packages-server
+          mv packages-server.zip $OPENWRTROOT/bin/targets/$TARGET/$SUBTARGET
+      - name: Rclone Upload
+        env:
+          RCLONE_PACKAGE: ${{ secrets.RCLONE_PACKAGE }}
+          RCLONE_FIRMWARE: ${{ secrets.RCLONE_FIRMWARE }}
+        if: env.GENERATE_STATUS == 'success' && env.UPLOAD_RCLONE == 'true' && env.RCLONE_PACKAGE != ''
+        run: |
+          cd $OPENWRTROOT
+          curl https://rclone.org/install.sh | sudo bash
+          mkdir -p ~/.config/rclone/
+          cat << EOF > ~/.config/rclone/rclone.conf
+          ${{ secrets.RCLONE_CONFIG }}
+          EOF
+          rclone copy bin/targets/$TARGET/$SUBTARGET/packages $RCLONE_PACKAGE:$(date +"%Y-%m-%d")/lean/targets/$TARGET/$SUBTARGET
+          rclone copy bin/targets $RCLONE_FIRMWARE:$(date +"%Y-%m-%d")/lean --exclude "packages/"
+          echo "::warning file=Firmware-GoogleDrive::Download Link: https://drive.google.com/drive/folders/1_P2RoPbguY99qJxmCU4SKUgP8Kg0Xr03"
+      - name: Deploy Files To HostHatch Node
+        id: hosthatch
+        env:
+          HOST: "${{ secrets.REMOTE_USER }}@${{ secrets.HOSTHATCH_IP }}"
+          SOURCE_TARGETS: "openwrt/bin/targets/${{ env.TARGET }}/${{ env.SUBTARGET }}/"
+          DEST_TARGETS: "${{ env.WEBROOT }}/releases/targets/${{ env.TARGET }}/${{ env.SUBTARGET }}/"
+          REMOTE_PRIVATEKEY: "${{secrets.HOSTHATCH_PRIVATEKEY}}"
+        if: env.REMOTE_PRIVATEKEY != null
+        run: |
+          mkdir -p ~/.ssh/
+          install -m 600 /dev/null ~/.ssh/id_rsa
+          echo "${{secrets.HOSTHATCH_PRIVATEKEY}}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $HOST \
+          bash -c "'mkdir -p $WEBROOT/releases/targets/$TARGET/$SUBTARGET \
+          $WEBROOT/archive/$(date +%Y)/$(date +%m)/$(date +%d)/releases/targets/$TARGET/$SUBTARGET'"
+          rsync -chavP --delete -e 'ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no' $SOURCE_TARGETS $HOST:$DEST_TARGETS
+          ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $HOST \
+          bash -c "'rsync -axv --delete $WEBROOT/releases/targets/$TARGET/$SUBTARGET $WEBROOT/archive/$(date +%Y)/$(date +%m)/$(date +%d)/releases/targets/$TARGET/$SUBTARGET'"
+      - name: Deploy Files To OVH Node
+        id: ovh
+        env:
+          HOST: "${{ secrets.REMOTE_USER }}@${{ secrets.OVH_IP }}"
+          SOURCE_TARGETS: "openwrt/bin/targets/${{ env.TARGET }}/${{ env.SUBTARGET }}/"
+          DEST_TARGETS: "${{ env.WEBROOT }}/releases/targets/${{ env.TARGET }}/${{ env.SUBTARGET }}/"
+          REMOTE_PRIVATEKEY: "${{secrets.OVH_PRIVATEKEY}}"
+        if: env.REMOTE_PRIVATEKEY != null
+        run: |
+          mkdir -p ~/.ssh/
+          install -m 600 /dev/null ~/.ssh/id_rsa
+          echo "${{secrets.OVH_PRIVATEKEY}}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $HOST \
+          bash -c "'mkdir -p $WEBROOT/releases/targets/$TARGET/$SUBTARGET'"
+          rsync -chavP --delete -e 'ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no' $SOURCE_TARGETS $HOST:$DEST_TARGETS
+      - name: Deploy Files To PacificRack Node
+        id: pacificrack
+        env:
+          HOST: "${{ secrets.REMOTE_USER }}@${{ secrets.PACIFICRACK_IP }}"
+          SOURCE_TARGETS: "openwrt/bin/targets/${{ env.TARGET }}/${{ env.SUBTARGET }}/"
+          DEST_TARGETS: "${{ env.WEBROOT }}/releases/targets/${{ env.TARGET }}/${{ env.SUBTARGET }}/"
+          REMOTE_PRIVATEKEY: "${{secrets.PACIFICRACK_PRIVATEKEY}}"
+        if: env.REMOTE_PRIVATEKEY != null
+        run: |
+          mkdir -p ~/.ssh/
+          install -m 600 /dev/null ~/.ssh/id_rsa
+          echo "${{secrets.PACIFICRACK_PRIVATEKEY}}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $HOST \
+          bash -c "'mkdir -p $WEBROOT/releases/targets/$TARGET/$SUBTARGET'"
+          rsync -chavP --delete -e 'ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no' $SOURCE_TARGETS $HOST:$DEST_TARGETS
+      - name: Organize Files
+        id: organize
+        if: env.GENERATE_STATUS == 'success'
+        run: |
+          cd ${FIRMWARE}
+          rm -rf packages
+          cd $OPENWRTROOT/bin/targets/$TARGET/
+          curl -sL https://git.io/file-transfer | bash -s beta
+          sudo mv transfer /usr/bin
+          sudo chmod +x /usr/bin/transfer
+          df -hT $PWD
+          echo "::set-output name=ORGANIZE_STATUS::success"
+      - name: Upload Firmware To WeTransfer
+        if: steps.organize.outputs.ORGANIZE_STATUS == 'success' && env.UPLOAD_WETRANSFER == 'true'
+        run: |
+          transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
+          echo "::warning file=Firmware-Wetransfer.com::$(cat wetransfer.log | grep https)"
+      - name: Delete Artifacts
+        uses: geekyeggo/delete-artifact@v1
+        with:
+          name: |
+            bin-archive
